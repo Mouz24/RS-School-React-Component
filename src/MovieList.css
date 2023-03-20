@@ -1,0 +1,25 @@
+.moviesList {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.Movie {
+    display: flex;
+    border-radius: 25px;
+    border: 2px solid black;
+    flex-direction: column;
+    margin-right: 30px;
+    margin-bottom: 20px;
+}
+
+.MovieCreds {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #010201;
+}
