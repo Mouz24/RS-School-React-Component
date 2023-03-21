@@ -1,16 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import Header from './Header';
-import reportWebVitals from './reportWebVitals';
-import Movies from './Movies';
-import { BrowserRouter, createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
-import NotFound from './NotFound';
-import AboutUs from './AboutUs';
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import './index.css'
+import reportWebVitals from './reportWebVitals'
+import Movies from './Movies'
+import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
+import NotFound from './NotFound'
+import AboutUs from './AboutUs'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
-);
+)
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -19,19 +18,16 @@ const router = createBrowserRouter(
       <Route path="/aboutus" element={<AboutUs />} />
       <Route path='*' element={<NotFound />} />
       </>
-  
   )
 )
 
 root.render(
   <React.StrictMode>
       <RouterProvider router={router}/>
-      {/* <Movies /> */}
-    
   </React.StrictMode>
-);
+)
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+reportWebVitals()

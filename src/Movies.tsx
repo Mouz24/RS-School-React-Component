@@ -1,8 +1,7 @@
-import React from 'react';
+import React from 'react'
 import MoviesList from './MoviesConfig'
 import MovieList, { JSONMovie } from './MovieList';
-import './MovieList';
-import List from './SearchNames';
+import './MovieList'
 import SearchNames from './SearchNames';
 import Header from './Header'
 import { BrowserRouter, createBrowserRouter, createRoutesFromElements, Link, Outlet, Route, Routes } from 'react-router-dom';

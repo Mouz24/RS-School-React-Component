@@ -1,9 +1,5 @@
-import { Link, Route, Router, Routes } from 'react-router-dom';
-import AboutUs from './AboutUs';
-import './Header.css';
-import Movies from './Movies';
-import NotFound from './NotFound';
-import React from 'react';
+import { Link } from 'react-router-dom'
+import React from 'react'
 
 const Header: React.FC = () => {
   return (
@@ -19,7 +15,7 @@ const Header: React.FC = () => {
             </nav>
         </div>
     </div>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

@@ -1,40 +1,39 @@
-import data from "./MoviesConfig"
 import './MovieList.css'
-import { JSONMovie } from "./MovieList";
-import React from "react";
+import type { JSONMovie } from './MovieList'
+import React from 'react'
 import './Header.css'
 
 interface Props {
-    names: JSONMovie[];
-  }
-  
-  interface State {
-    searchName: string;
-    filteredNames: JSONMovie[];
-  }
-  
-  class SearchNames extends React.Component<Props, State> {
-    constructor(props: Props) {
-      super(props);
-      this.state = {
-        searchName: '',
-        filteredNames: props.names,
-      };
-    }
-  
-    handleSearchNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      const searchName = event.target.value;
-      const filteredNames = this.props.names.filter(name =>
-        name.Title.toLowerCase().includes(searchName.toLowerCase())
-      );
+  names: JSONMovie[]
+}
 
-      localStorage.setItem('Input' , searchName);
-      
-      this.setState({ searchName, filteredNames });
-    };
-  
-    render() {
-      return (
+interface State {
+  searchName: string
+  filteredNames: JSONMovie[]
+}
+
+class SearchNames extends React.Component<Props, State> {
+  constructor (props: Props) {
+    super(props)
+    this.state = {
+      searchName: '',
+      filteredNames: props.names
+    }
+  }
+
+  handleSearchNameChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    const searchName = event.target.value
+    const filteredNames = this.props.names.filter(name =>
+      name.Title.toLowerCase().includes(searchName.toLowerCase())
+    )
+
+    localStorage.setItem('Input', searchName)
+
+    this.setState({ searchName, filteredNames })
+  }
+
+  render (): JSX.Element {
+    return (
         <div>
             <div className="wrap">
                     <div className="search">
@@ -46,8 +45,8 @@ interface Props {
             </div>
           <ul>
             <div className="moviesList">
-            {this.state.filteredNames.map(movie => (
-              <div className='Movie'>
+            {this.state.filteredNames.map((movie, index: number) => (
+              <div className='Movie' key={index}>
                 <img src={movie.Poster} alt='movie'></img>
                 <div className='MovieCreds'>
                     <div>Title: {movie.Title}</div>
@@ -58,8 +57,8 @@ interface Props {
             </div>
           </ul>
         </div>
-      );
-    }
+    )
   }
-  
-  export default SearchNames;
+}
+
+export default SearchNames

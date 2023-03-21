@@ -1,29 +1,27 @@
-import React from 'react';
-import List from './SearchNames';
-import './MovieList.css';
+import './MovieList.css'
+import React from 'react'
 
-export type JSONMovie = 
-{
-    Poster: string,
-    Year: string,
-    Title: string
-};
+export interface JSONMovie {
+  Poster: string
+  Year: string
+  Title: string
+}
 
-const MovieList = (props: { movies: JSONMovie[] }) => {
-	
-	return (
-		<div className='moviesList'>
-			{props.movies.map((movie, index: number) => (
-				<div className='Movie'>
-					<img src={movie.Poster} alt='movie'></img>
-					<div className='MovieCreds'>
-						<div>Title: {movie.Title}</div>
-						<div>Year: {movie.Year}</div>
-					</div>
-				</div>
-			))}
-		</div>
-	);
-};
+const MovieList: React.FC<JSONMovie[]> = (props: JSONMovie[]) => {
+  return (
+  <React.Fragment>
+  <div className='moviesList'>
+    {props.map((movie, index: number) => (
+    <div className='Movie' key={index}>
+    <img src={movie.Poster} alt='movie'></img>
+    <div className='MovieCreds'>
+      <div>Title: {movie.Title}</div>
+      <div>Year: {movie.Year}</div>
+    </div>
+  </div>))}
+  </div>
+  </React.Fragment>
+  )
+}
 
-export default MovieList;
+export default MovieList
